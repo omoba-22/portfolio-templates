@@ -22,11 +22,55 @@
         #hero, #about, #services, #projects, #testimonials, #tools, #contact{
             scroll-margin-top: 100px;
         }
+        button,
+        a,
+        .card,
+        .services ul li,
+        .testimonials ul li,
+        .tools ul li,
+        img {
+            transition: all 0.3s ease;
+        }
+        .services ul li:hover,
+        .portfolio .project .card:hover,
+        .testimonials ul li:hover,
+        .tools ul li:hover{
+            transform:translateY(-8px);
+            box-shadow:0 25px 50px rgba(0,0,0,.5);
+        }
+        .about h3,
+        .services h3,
+        .portfolio h3,
+        .testimonials h3,
+        .tools h3,
+        .contact h3{
+            position:relative;
+        }
+        .about h3::after,
+        .services h3::after,
+        .portfolio h3::after,
+        .testimonials h3::after,
+        .tools h3::after,
+        .contact h3::after{
+            content:"";
+            display:block;
+            width:60px;
+            height:4px;
+            background:var(--accent);
+            margin-top:10px;
+            border-radius:20px;
+        }
         .container{
             max-width: 1200px;
             margin: 0 auto;
             width: 90%;
             padding: 20px 0;
+        }
+        .logo{
+            font-size:1.5rem;
+            font-weight:700;
+            color:var(--accent);
+            cursor:pointer;
         }
         .nav-container{
             display: flex;
@@ -51,6 +95,24 @@
         nav ul li a{
             text-decoration: none;
             color: var(--text);
+            position: relative;
+        }
+        nav ul li a::after{
+            content:"";
+            position:absolute;
+            left:0;
+            bottom:-5px;
+            width:0;
+            height:2px;
+            background:var(--accent);
+            transition:.3s;
+        }
+        nav ul li a:hover::after{
+            width:100%;
+        }
+
+        nav ul li a:hover{
+            color:var(--accent);
         }
         .hero {
             display:grid;
@@ -63,6 +125,9 @@
             .hero {
                 grid-template-columns: 1fr;
             }
+            .hero section:nth-child(1){
+                text-align:center;
+            }
             .hero section:nth-child(1) div{
                 justify-content: center;
             }
@@ -73,6 +138,12 @@
         }
         .hero section{
             flex: 1;
+        }
+        .hero section:nth-child(1){
+            text-align:left;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
         }
         .hero section:nth-child(1) h1{
             font-size: 4rem;
@@ -88,13 +159,18 @@
             gap: 20px;
         }
         .hero section:nth-child(1) div button{
-            padding: 15px 30px;
+            padding: 12px 24px;
             font-size: 16px;
             border: none;
             cursor: pointer;
             border-radius: 12px;
             background-color: var(--accent);
             color: var(--text);
+            transition: 3s;
+        }
+        .hero section:nth-child(1) div button:hover{
+            transform:translateY(-4px);
+            box-shadow:0 10px 25px rgba(139,92,246,.4);
         }
         .hero section:nth-child(1) div button:nth-child(2){
             background-color: transparent;
@@ -111,6 +187,11 @@
             display: block;
             margin-inline: auto;
             border-radius: 24px;
+            transition: 4s;
+        }
+        .hero section:nth-child(2) img:hover{
+            transform:scale(1.02);
+            box-shadow:0 20px 40px rgba(0,0,0,.4);
         }
         .about{
             margin-bottom: 100px;
@@ -144,7 +225,7 @@
             background-color: var(--card);
             padding: 20px;
             border-radius: 24px;
-            box-shadow:0 20px 40px rgba(0,0,0,.4);
+            /* box-shadow:0 20px 40px rgba(0,0,0,.4); */
         }
         .services ul li h4{
             font-size: 20px;
@@ -162,7 +243,7 @@
         }
         .portfolio .project{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
         }
         .portfolio .project .card{
@@ -171,9 +252,18 @@
         }
         .portfolio .project .card img{
             width: 100%;
-            height: 300px;
+            height: 200px;
             border-top-left-radius: 24px;
             border-top-right-radius: 24px;
+        }
+        .portfolio .project .card{
+            overflow:hidden;
+        }
+        .portfolio .project .card img{
+            transition:.4s;
+        }
+        .portfolio .project .card:hover img{
+            transform:scale(1.05);
         }
         .portfolio .project .card h3{
             font-size: 24px;
@@ -310,6 +400,22 @@
                 display: block;
             }
             .hero section:nth-child(1) h1{
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+            .hero section:nth-child(1) div{
+                flex-direction:column;
+                align-items:center;
+            }
+            .hero section:nth-child(1) div button{
+                width:220px;
+                padding:12px 20px;
+            }
+            .about h3,
+            .services h3,
+            .portfolio h3,
+            .testimonials h3,
+            .tools h3,
+            .contact h3{
+                font-size:2rem;
             }
         }
